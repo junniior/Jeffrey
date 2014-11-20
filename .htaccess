@@ -1,4 +1,9 @@
+#Ativando Configuração do apache via .htaccess
 RewriteEngine On
+
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^(.*)$ controle.php?key=$1
+
+#Ajustando a Hora do servidor php 
+php_value date.timezone America/Sao_Paulo
