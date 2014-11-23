@@ -24,7 +24,11 @@
 			
 		}
 
-		public function read () {}
+		public function read ( $tabela ) {
+			$q = $this->db->query("SELECT * FROM `{$tabela}`");
+			$q->setFetchMode(PDO::FETCH_ASSOC);
+			return $q->fetchAll();
+		}
 
 		public function update () {}
 

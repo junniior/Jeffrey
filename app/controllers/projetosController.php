@@ -25,4 +25,15 @@
 			return header( "Location: ../projetos" );
 		}
 
+		public function listaCompleta () {
+			$db = new Projetos_Model ();
+			$a = ($db->read('sis_pjt'));
+			foreach ($a as $key) {
+				$a1 = $key['pjt_id'];
+				$a2 = $key['pjt_nme'];
+				$a3 = $key['pjt_data'];
+			}
+
+		}
+
 	}
