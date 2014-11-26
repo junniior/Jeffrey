@@ -25,31 +25,9 @@
 			return header( "Location: ../projetos" );
 		}
 
-		public function listaProjetos( $string ) {
+		public function listaProjetos() {
 			$db = new Projetos_Model();
 			$read = ($db->read('sis_pjt'));
-				
-			switch ($string) {
-				case 'todos':
-					foreach ($read as $key) {
-						echo 
-						  '<tr>
-							<td>'.$key['pjt_id'].'</td>
-							<td>'.$key['pjt_nme'].'</td>
-							<td>'.$key['pjt_data'].'</td>
-						  </tr>'
-						;
-					}
-					break;
-				case 'finalizados':
-					//echo '<td>'.$key['pjt_nme'].'</td>';
-					break;
-				case 'abertos':
-					//echo '<td>'.$key['pjt_data'].'</td>';
-					break;
-				default:
-					//echo '';
-					break;
-			}
+			return $read;
 		}
 	}

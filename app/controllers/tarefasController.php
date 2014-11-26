@@ -29,4 +29,12 @@
 
 			return header( "Location: ../tarefas" );
 		}
+
+		public function listaTarefas() {
+			$db = new Tarefas_Model();
+			$read = ($db->read('sis_trf'));
+			return $read;
+		}
+
+
 	}

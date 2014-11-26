@@ -1,4 +1,7 @@
-<?php include('system/header.php'); ?>
+<?php 
+	include('system/header.php');
+	$b = new Projetos();
+?>
 
 <div style="margin-left:10px;">
 <h2>Meus Projetos</h2>
@@ -8,23 +11,26 @@
 
 <br><br>
 
-	<div>
-		<table class="table">
-	      <thead>
-	        <tr>
-	          <th>Id do Projeto</th>
-	          <th>Nome do Projeto</th>
-	          <th>Data de Criação</th>
-	        </tr>
-	      </thead>
-	      <tbody>
-			<?php 
-				$b = new Projetos ();
-				$b->listaProjetos('todos');
-			?>
-	      </tbody>
-	    </table>
-    </div>
+<div style="display:inline-flex">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id do Projeto</th>
+				<th>Nome do Projeto</th>
+				<th>Data de Criação</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($b->listaProjetos() as $key) { ?>
+			<tr class="active">
+				<td><?php print $key['pjt_id'] ?></td>
+				<td><?php print $key['pjt_nme'] ?></td>
+				<td><?php print $key['pjt_data'] ?></td>
+			</tr>
+		<?php } ?>
+		</tbody>
+	</table>
+</div>
 
 <br>
 
