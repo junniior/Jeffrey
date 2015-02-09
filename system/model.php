@@ -31,8 +31,12 @@
 		}
 
 		public function update () {}
-
-		public function delete () {}
+         
+        // Deleta um Arquivo da Tabela
+		public function delete ( $id, $table ) {
+			$delete = $this->db->prepare("delete from `{$table}` where id = ?");
+			return $delete->execute(array($id));
+		}
 
 	}
 
